@@ -5,11 +5,11 @@ import steps from "../constants/steps";
 import theme from "../constants/theme";
 import styles from "./chatbot.module.css";
 
-const Bot = () => {
+const Bot = ({initialSteps}) => {
   return (
     <ThemeProvider theme={theme}>
       <div className={styles.chatbotcomponentwrapper}>
-        <ChatBot steps={steps} />
+        <ChatBot steps={[...initialSteps, ...steps]} />
       </div>
     </ThemeProvider>
   );
