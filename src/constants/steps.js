@@ -4,44 +4,6 @@ import VirusPrediction from "../components/VirusPrediction";
 
 const steps = [
   {
-    id: "init",
-    message: "Hi, I'm the CovidBot",
-    trigger: "description"
-  },
-  {
-    id: "description",
-    message:
-      "I'd tell you your chances of getting infected based on your gender and age",
-    trigger: "1"
-  },
-  {
-    id: "1",
-    message: "What is your name?",
-    trigger: "name"
-  },
-  {
-    id: "name",
-    user: true,
-    trigger: "3"
-  },
-  {
-    id: "3",
-    message: "Hi {previousValue}! What is your gender?",
-    trigger: "gender"
-  },
-  {
-    id: "gender",
-    options: [
-      { value: "male", label: "Male", trigger: "5" },
-      { value: "female", label: "Female", trigger: "5" }
-    ]
-  },
-  {
-    id: "5",
-    message: "How old are you?",
-    trigger: "age"
-  },
-  {
     id: "age",
     user: true,
     trigger: "7",

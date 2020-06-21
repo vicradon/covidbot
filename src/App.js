@@ -1,13 +1,21 @@
 import React from "react";
-import Chatbot from './components/Chatbot'
+import axios from 'axios';
+import Chatbot from "./components/Chatbot";
 import "./styles.css";
 
 const App = () => {
-  return (
-    <div >
-      <Chatbot />
-    </div>
-  );
-}
+  const [loaded, setLoaded] = React.useState(false);
+  const [initialSteps, setInitialSteps] = React.useState()
 
-export default App
+  React.useEffect(() => {
+    axios
+      .get("https://covidbot1--vicradon.repl.co")
+      .then(res => {
+        setInitialSteps(res.data.data)
+        setLoaded(true)
+      });
+  }, []);
+  return <div>{loaded ? <Chatbot initialSteps={initialSteps}  /> : <p>Loading...</p>}</div>;
+};
+
+export default App;
